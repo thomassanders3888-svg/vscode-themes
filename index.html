@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Themes Gallery</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2868508772018395" crossorigin="anonymous"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0f; color: #e4e4ee; }
+        header { text-align: center; padding: 3rem 1rem; border-bottom: 1px solid #1e1e2e; }
+        h1 { font-size: 2rem; color: #007acc; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .search { width: 100%; max-width: 400px; padding: 0.75rem; background: #141420; border: 1px solid #2a2a3f; border-radius: 8px; color: #e4e4ee; margin: 0 auto 2rem; display: block; }
+        .themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+        .theme { background: #141420; border: 1px solid #1e1e2e; border-radius: 12px; padding: 1.25rem; }
+        .theme-preview { height: 100px; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; padding: 0.5rem; font-size: 0.7rem; }
+        .theme-name { font-weight: 600; margin-bottom: 0.5rem; }
+        .theme-meta { display: flex; justify-content: space-between; color: #9090a0; font-size: 0.8rem; }
+        .install-cmd { background: #1e1e2e; padding: 0.5rem; border-radius: 4px; font-family: monospace; font-size: 0.75rem; margin-top: 0.75rem; cursor: pointer; }
+        .ad-unit { text-align: center; margin: 2rem 0; padding: 1rem; background: #141420; border-radius: 8px; }
+        .dark { background: #1e1e2e; color: #d4d4d4; }
+        .light { background: #ffffff; color: #333333; }
+        .purple { background: #2d2b55; color: #f8f8f2; }
+        .dracula { background: #282a36; color: #f8f8f2; }
+        .synth { background: #2b213a; color: #f92aad; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VS Code Themes</h1>
+        <p>20+ popular themes with install commands</p>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2868508772018395" data-ad-format="auto"></ins></div>
+
+        <input type="text" class="search" placeholder="Search themes..." id="search" onkeyup="filter()">
+
+        <div class="themes" id="themes">
+            <div class="theme"><div class="theme-preview dark">const x = 1;<br>function test() {}</div><div class="theme-name">Dark+ (Default)</div><div class="theme-meta"><span>★ 4.9</span><span>Built-in</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension theme-default</div></div>
+            <div class="theme"><div class="theme-preview dracula">const x = 1;<br>function test() {}</div><div class="theme-name">Dracula Official</div><div class="theme-meta"><span>★ 4.8</span><span>5M+ installs</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension dracula-theme.theme-dracula</div></div>
+            <div class="theme"><div class="theme-preview" style="background:#2b2b2b;color:#a9b7c6">const x = 1;<br>function test() {}</div><div class="theme-name">Darcula Theme</div><div class="theme-meta"><span>★ 4.7</span><span>1M+ installs</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension oouo-darcula-theme</div></div>
+            <div class="theme"><div class="theme-preview" style="background:#1a1a2e;color:#eaeaea">const x = 1;<br>function test() {}</div><div class="theme-name">Night Owl</div><div class="theme-meta"><span>★ 4.8</span><span>1M+ installs</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension sdras.night-owl</div></div>
+            <div class="theme"><div class="theme-preview synth">const x = 1;<br>function test() {}</div><div class="theme-name">SynthWave '84</div><div class="theme-meta"><span>★ 4.7</span><span>800K+ installs</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension msjsdiag.synthwave-vscode</div></div>
+            <div class="theme"><div class="theme-preview" style="background:#1e1e1e;color:#dcdcaa">const x = 1;<br>function test() {}</div><div class="theme-name">One Dark Pro</div><div class="theme-meta"><span>★ 4.8</span><span>5M+ installs</span></div><div class="install-cmd" onclick="copy(this)">code --install-extension akamud.vscode-theme-onedark</div></div>
+        </div>
+    </div>
+
+    <script>
+    function copy(el) {
+        navigator.clipboard.writeText(el.textContent);
+        el.textContent = 'Copied!';
+        setTimeout(() => el.textContent = el.textContent.replace('Copied!', el.getAttribute('data-cmd') || el.textContent), 1000);
+    }
+    function filter() {
+        const term = document.getElementById('search').value.toLowerCase();
+        document.querySelectorAll('.theme').forEach(t => {
+            t.style.display = t.textContent.toLowerCase().includes(term) ? 'block' : 'none';
+        });
+    }
+    </script>
+</body>
+</html>
